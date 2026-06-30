@@ -1,0 +1,81 @@
+/* Brigade - review-brigade signal console. Charcoal + coral + cyan. Hero 3D
+   swarm bleeds top-RIGHT, headline left. Distinct from every other mesa app. */
+:root {
+  --bg: #0d1015; --panel: #161a21; --panel2: #1d232c; --line: #2a313c;
+  --txt: #e8edf2; --dim: #8b95a3; --coral: #fb7185; --cyan: #22d3ee; --amber: #fbbf24; --r: 12px;
+}
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; background: var(--bg); color: var(--txt); }
+body { font-family: "Inter", -apple-system, "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+code { font-family: "IBM Plex Mono", ui-monospace, monospace; color: var(--cyan); }
+button { font: inherit; cursor: pointer; } input, textarea, select { font: inherit; }
+.fs { max-width: 1080px; margin: 0 auto; padding: 0 26px 80px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 0 10px; }
+.brand { display: flex; align-items: baseline; gap: 12px; }
+.brand b { font-family: "Space Grotesk", sans-serif; font-size: 22px; letter-spacing: -.01em; }
+.brand span { color: var(--dim); font-size: 11px; text-transform: uppercase; letter-spacing: .16em; }
+.top-r { display: flex; align-items: center; gap: 14px; }
+.live { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--dim); font-family: "IBM Plex Mono", monospace; }
+.live i { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); } .live.off i { background: var(--coral); box-shadow: none; }
+
+.hero { position: relative; padding: 42px 0 26px; overflow: visible; min-height: 230px; }
+.hero3d { position: absolute; top: -110px; right: -150px; width: 560px; height: 520px; pointer-events: none; z-index: 0; }
+.hero-in { position: relative; z-index: 2; max-width: 640px; }
+.eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--coral); margin: 0 0 14px; }
+.hero h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(36px, 5.6vw, 66px); line-height: 1; letter-spacing: -.02em; margin: 0 0 16px; }
+.hero h1 em { font-style: normal; color: var(--coral); }
+.lede { font-size: 16px; line-height: 1.5; color: #bcc5d1; max-width: 520px; margin: 0; }
+.src { font-size: 12.5px; color: var(--dim); max-width: 520px; margin-top: 12px; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin: 24px 0; }
+.stat { background: var(--panel); padding: 15px 16px; } .stat b { font-family: "Space Grotesk", sans-serif; font-size: 27px; display: block; } .stat b i { font-size: 13px; color: var(--dim); font-style: normal; margin-left: 3px; }
+.stat span { font-size: 10.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); }
+
+.sec-h { display: flex; align-items: baseline; gap: 12px; margin: 28px 0 12px; }
+.sec-h h2 { font-family: "Space Grotesk", sans-serif; font-size: 16px; margin: 0; } .sec-h .mut { color: var(--dim); font-size: 12px; font-family: "IBM Plex Mono", monospace; }
+
+.mkts { display: grid; gap: 10px; }
+.mkt { text-align: left; width: 100%; background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 15px 17px; transition: border-color .15s, transform .15s; }
+.mkt:hover { border-color: #38424f; transform: translateY(-1px); } .mkt.on { border-color: var(--coral); }
+.mkt-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; } .mkt-q { font-weight: 600; font-size: 15px; }
+.mkt-meta { display: flex; gap: 14px; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--dim); flex-wrap: wrap; }
+.coordbar { height: 7px; border-radius: 6px; overflow: hidden; margin-top: 10px; background: var(--panel2); } .coordbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--coral)); }
+.tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+.tag.ORGANIC { color: var(--cyan); border-color: #1c4e57; background: #0e2227; }
+.tag.SUSPICIOUS { color: var(--amber); border-color: #5a4a1c; background: #211c0e; }
+.tag.BOMBING { color: var(--coral); border-color: #5e2c34; background: #25141a; }
+.tag.pend { color: var(--dim); }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; margin-top: 12px; }
+.ratings { display: flex; align-items: center; gap: 14px; margin: 10px 0 14px; }
+.ratings .r { font-family: "Space Grotesk", sans-serif; font-size: 30px; } .ratings .arrow { color: var(--dim); } .ratings .disp { color: var(--dim); } .ratings .org { color: var(--cyan); }
+.kv { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 13px; } .kv:last-child { border-bottom: 0; } .kv span { color: var(--dim); }
+.evid { margin-top: 12px; } .evid .l { font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--dim); margin-bottom: 6px; }
+.evid pre { white-space: pre-wrap; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #c5d0dc; background: var(--panel2); border-radius: 10px; padding: 12px; margin: 0; }
+.why { color: #bcc5d1; font-size: 13.5px; line-height: 1.5; border-left: 2px solid var(--coral); padding-left: 12px; margin: 12px 0; }
+label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: var(--dim); margin: 12px 0 5px; }
+input, textarea, select { width: 100%; background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; color: var(--txt); } textarea { min-height: 84px; resize: vertical; }
+.btn { display: inline-flex; align-items: center; gap: 8px; background: var(--coral); color: #2a0c12; border: 0; border-radius: 10px; padding: 11px 16px; font-weight: 600; margin-top: 12px; }
+.btn:hover { filter: brightness(1.07); } .btn:disabled { opacity: .45; cursor: not-allowed; } .btn.ghost { background: transparent; color: var(--cyan); border: 1px solid #1c4e57; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.quiet { color: var(--dim); font-size: 13px; display: inline-flex; gap: 6px; align-items: center; }
+.skel { display: grid; gap: 10px; } .sk { height: 76px; border-radius: var(--r); background: linear-gradient(100deg, var(--panel) 30%, var(--panel2) 50%, var(--panel) 70%); background-size: 200% 100%; animation: sh 1.3s infinite; }
+@keyframes sh { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } } @media (prefers-reduced-motion: reduce) { .sk { animation: none; } }
+.empty { color: var(--dim); border: 1px dashed var(--line); border-radius: var(--r); padding: 22px; text-align: center; }
+.strip { background: #25141a; color: var(--coral); border: 1px solid #5e2c34; border-radius: 10px; padding: 9px 13px; font-size: 13px; margin: 10px 0; display: flex; gap: 8px; align-items: center; }
+.foot { display: flex; align-items: center; justify-content: space-between; color: var(--dim); font-size: 12px; font-family: "IBM Plex Mono", monospace; border-top: 1px solid var(--line); margin-top: 40px; padding-top: 18px; }
+.toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: var(--panel2); border: 1px solid var(--line); color: var(--txt); padding: 10px 16px; border-radius: 999px; font-size: 13px; z-index: 50; }
+@media (max-width: 820px) { .stats { grid-template-columns: repeat(2,1fr); } .hero3d { opacity: .4; right: -200px; } }
+
+
+/* full-page animated geometric background (radar + particles) */
+.bg-geo { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; }
+.fs { position: relative; z-index: 1; }
+
+
+.signals { display: grid; gap: 7px; margin: 12px 0 6px; }
+.sig { display: grid; grid-template-columns: 70px 1fr 44px; align-items: center; gap: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); }
+.sig .coordbar.sm { height: 6px; margin: 0; }
+.sig b { text-align: right; }
